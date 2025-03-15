@@ -1,22 +1,34 @@
 import fiftyone as fo
-import kagglehub as kaggle
 import os
-import zipfile as zip
 
-# Download latest version
-dataset_path = kaggle.dataset_download("muhammad0subhan/fruit-and-vegetable-disease-healthy-vs-rotten")
-extract_path = os.path.join(os.getcwd(), "fruit_veg_dataset")
-
-with zip.ZipFile(dataset_path, 'r') as zip_ref:
-    zip_ref.extractall(extract_path)
+dataset_path = "C:/Users/pgao2/Documents/Fruit_And_Veg_Dataset"
 
 # Create a new dataset for food spoilage
-dataset = fo.Dataset(name="food_spoilage")
+dataset = fo.Dataset(name="fruit_veg_dataset")
+categories = ["Healthy", "Rotten"]
+samples = []
 
-# Load image samples (fresh and spoiled)
-dataset.add_sample(fo.Sample(filepath="fresh_apple.jpg", tags=["fresh"]))
-dataset.add_sample(fo.Sample(filepath="rotten_apple.jpg", tags=["spoiled"]))
+# Loop through all subfolders in the dataset
+for root, dirs, files in os.walk(dataset_path):
+    if files:  # If there are image files in this folder
+        subfolder = os.path.basename(root)  # Extract folder name
+        parts = subfolder.split('__')  # Example: "Apple_Healthy" → ["Apple", "Healthy"]
 
+        if len(parts) == 2:  # Ensure correct format
+            food_type = parts[0]  # "Apple", "Banana", etc.
+            condition = parts[1].lower()  # Convert to lowercase ("healthy" or "rotten")
+
+            for file in files:
+                img_path = os.path.join(root, file)
+                
+                # Ensure the file is an image before adding it
+                if img_path.lower().endswith((".jpg", ".png", ".jpeg")):
+                    sample = fo.Sample(filepath=img_path)
+                    sample["ground_truth"] = fo.Classification(label=condition)
+                    sample["food_type"] = food_type  # Store food type as metadata
+                    samples.append(sample)
+
+dataset.add_samples(samples)
 # Launch FiftyOne app
 if __name__ == "__main__":
     session = fo.launch_app(dataset)
