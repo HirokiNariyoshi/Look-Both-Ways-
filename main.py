@@ -7,7 +7,7 @@ import zipfile as zip
 dataset_path = kaggle.dataset_download("muhammad0subhan/fruit-and-vegetable-disease-healthy-vs-rotten")
 extract_path = os.path.join(os.getcwd(), "fruit_veg_dataset")
 
-with zip.Zipfile(dataset_path, 'r') as zip_ref:
+with zip.ZipFile(dataset_path, 'r') as zip_ref:
     zip_ref.extractall(extract_path)
 
 # Create a new dataset for food spoilage
