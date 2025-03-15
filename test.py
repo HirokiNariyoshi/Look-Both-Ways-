@@ -12,5 +12,6 @@ food_dataset.add_sample(fo.Sample(filepath="fresh_apple.jpg", tags=["fresh"]))
 food_dataset.add_sample(fo.Sample(filepath="rotten_apple.jpg", tags=["spoiled"]))
 
 # Launch FiftyOne app
-session = fo.launch_app(food_dataset)
-session.wait()
+if __name__ "__main__":
+    session = fo.launch_app(food_dataset)
+    session.wait()
