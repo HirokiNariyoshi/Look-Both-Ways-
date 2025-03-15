@@ -1,7 +1,10 @@
 import fiftyone as fo
 import os
+from dotenv import load_dotenv
 
-dataset_path = "C:/Users/pgao2/Documents/Fruit_And_Veg_Dataset"
+load_dotenv()
+
+dataset_path = os.getenv('DATASET_PATH')
 
 # Create a new dataset for food spoilage
 dataset = fo.Dataset(name="fruit_veg_dataset")
