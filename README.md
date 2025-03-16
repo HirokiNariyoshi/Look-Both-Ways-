@@ -1,4 +1,4 @@
-# Shelf-Life An AI-Powered Food Freshness Visualization System
+# Shelf Life - An AI-Powered Food Freshness Visualization System
 ##  Voxel51 Visual AI Hackathon
 ## Description
 ### [Formal Techinical Presentation](https://www.figma.com/deck/e8Ry62KNgGrkL1ujO34vgK/voxel51-AI-visualization-presentation?node-id=28-5&t=mSvu7xzhBgGHMqPt-1)
