@@ -1,7 +1,7 @@
 # Shelf Life - An AI-Powered Food Freshness Visualization System
 ##  Voxel51 Visual AI Hackathon
 ## Description
-### [Formal Techinical Presentation](https://www.figma.com/deck/e8Ry62KNgGrkL1ujO34vgK/voxel51-AI-visualization-presentation?node-id=28-5&t=mSvu7xzhBgGHMqPt-1)
+### [Formal Techinical Presentation](https://www.figma.com/deck/e8Ry62KNgGrkL1ujO34vgK/voxel51-AI-visualization-presentation?node-id=1-42&t=dY5c7iJkdlzFlzSQ-1&scaling=min-zoom&content-scaling=fixed&page-id=0%3A1)
 Our project is a visual AI-powered system that can detect food spoilage based on visual indicators. It will assess food freshness and help provide relevant insight for consumption, storage, and disposal actions.
 ## Dataset
 ### [Source](https://www.kaggle.com/datasets/muhammad0subhan/fruit-and-vegetable-disease-healthy-vs-rotten/data)
